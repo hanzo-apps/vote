@@ -13,6 +13,7 @@ import {
   getEtherscanAPIUrl,
   getSafeContractDeploymentAddress,
   getAddressFromContractDeploymentInfo,
+  getDeployableAddress,
 } from './utils';
 
 const SAFE_VERSION = '1.3.0';
@@ -89,8 +90,8 @@ export const baseConfig: NetworkConfig = {
     freezeVotingMultisigMasterCopy: getAddressFromContractDeploymentInfo(a.MultisigFreezeVoting),
 
     votesErc20MasterCopy: getAddressFromContractDeploymentInfo(a.VotesERC20),
-    votesErc20LockableMasterCopy: addresses.deployables.VotesERC20V1,
-    votesERC20StakedV1MasterCopy: addresses.deployables.VotesERC20StakedV1,
+    votesErc20LockableMasterCopy: getDeployableAddress(addresses?.deployables, 'VotesERC20V1'),
+    votesERC20StakedV1MasterCopy: getDeployableAddress(addresses?.deployables, 'VotesERC20StakedV1'),
 
     claimErc20MasterCopy: getAddressFromContractDeploymentInfo(a.ERC20Claim),
 
