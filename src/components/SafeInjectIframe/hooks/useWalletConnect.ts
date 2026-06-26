@@ -10,8 +10,8 @@ import { TransactionWithId } from '../types';
 const WCMetadata = {
   name: 'DAO DAO',
   description: 'Govern at startup speed.',
-  url: 'luxdao.org',
-  icons: ['https://luxdao.org/favicon.ico'],
+  url: 'hanzo.vote',
+  icons: ['https://hanzo.vote/favicon.ico'],
 };
 
 const core = new Core({

@@ -1,7 +1,7 @@
 import { AbsoluteCenter, Button, Text, VStack } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { LuxTriangle } from '../assets/theme/custom/icons/LuxTriangle';
+import { BrandTriangle } from '../assets/theme/custom/icons/BrandTriangle';
 import { BASE_ROUTES } from '../constants/routes';
 
 export default function FourOhFourPage() {
@@ -13,7 +13,7 @@ export default function FourOhFourPage() {
   return (
     <AbsoluteCenter>
       <VStack>
-        <LuxTriangle boxSize="5rem" color="white" />
+        <BrandTriangle boxSize="5rem" color="white" />
         <Text
           paddingTop="3.25rem"
           data-testid="404-pageCode"
