@@ -118,7 +118,7 @@ export function SafeProposalDappDetailModal({
   const { addAction, resetActions } = useProposalActionsStore();
   const navigate = useNavigate();
 
-  const [customAppUrl, setCustomAppUrl] = useState('https://app.luxdao.org');
+  const [customAppUrl, setCustomAppUrl] = useState('https://hanzo.vote');
   const finalAppUrl = appUrl || customAppUrl;
 
   const safeAddress = safe?.address;

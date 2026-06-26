@@ -59,7 +59,7 @@ export function Footer() {
         <ExternalLink href="/docs/fractal_audit.pdf" fontSize="0.75rem">{t('audit', { ns: 'home' })}</ExternalLink>
         <Box>·</Box>
         <ExternalLink
-          href={`https://github.com/luxdao/interface/releases/tag/v${import.meta.env.PACKAGE_VERSION}`}
+          href={`https://github.com/hanzo-apps/vote/releases/tag/v${import.meta.env.PACKAGE_VERSION}`}
           fontSize="0.75rem"
         >
           v{import.meta.env.PACKAGE_VERSION}

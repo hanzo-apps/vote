@@ -14,7 +14,7 @@ import { List } from '@phosphor-icons/react';
 import { RefObject, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { LuxTriangle } from '../../../../assets/theme/custom/icons/LuxTriangle';
+import { BrandTriangle } from '../../../../assets/theme/custom/icons/BrandTriangle';
 import {
   MOBILE_DRAWER_OVERLAY,
   NEUTRAL_2_82_TRANSPARENT,
@@ -79,7 +79,7 @@ function HeaderLogo() {
                   aria-label={t('ariaLabelFractalBrand')}
                   onClick={onClose}
                 >
-                  <LuxTriangle boxSize="1.5rem" color="white" />
+                  <BrandTriangle boxSize="1.5rem" color="white" />
                 </Link>
               </Flex>
               <Flex
@@ -102,7 +102,7 @@ function HeaderLogo() {
           to={BASE_ROUTES.landing}
           aria-label={t('ariaLabelFractalBrand')}
         >
-          <LuxTriangle boxSize="1.5rem" color="white" mr="1.75rem" />
+          <BrandTriangle boxSize="1.5rem" color="white" mr="1.75rem" />
         </Link>
       </Show>
     </Flex>

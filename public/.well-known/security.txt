@@ -1,6 +1,6 @@
-Contact: mailto:security@luxdao.org
+Contact: mailto:security@hanzo.ai
 Expires: 2024-01-01T05:00:00.000Z
-Encryption: https://keys.openpgp.org/search?q=security%40luxdao.org
+Encryption: https://keys.openpgp.org/search?q=security%40hanzo.ai
 Preferred-Languages: en
-Canonical: https://app.luxdao.org/.well-known/security.txt
-Policy: https://github.com/luxdao/interface/blob/HEAD/.github/SECURITY.md
+Canonical: https://hanzo.vote/.well-known/security.txt
+Policy: https://github.com/hanzo-apps/vote/blob/HEAD/.github/SECURITY.md

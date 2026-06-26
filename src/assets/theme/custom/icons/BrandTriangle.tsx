@@ -1,7 +1,7 @@
 import { createIcon } from '@chakra-ui/react';
 
-export const LuxTriangle = createIcon({
-  displayName: 'LuxTriangle',
+export const BrandTriangle = createIcon({
+  displayName: 'BrandTriangle',
   viewBox: '0 0 100 100',
   path: (
     <path
