@@ -3,12 +3,20 @@ import { viteWranglerSpa } from '@torchauth/vite-plugin-wrangler-spa';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig, loadEnv } from 'vite';
 import { checker } from 'vite-plugin-checker';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import packageJson from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const plugins = [react(), /* checker({ typescript: true }), */ viteWranglerSpa()];
+  const plugins = [
+    react(),
+    // Browser polyfills for Node globals (Buffer/global/process) that
+    // web3modal/wagmi/viem expect at runtime; without this the bundle
+    // throws "Buffer is not defined" on load.
+    nodePolyfills({ globals: { Buffer: true, global: true, process: true } }),
+    viteWranglerSpa(),
+  ];
   if (env.SENTRY_ORG && env.SENTRY_PROJECT && env.SENTRY_AUTH_TOKEN) {
     console.log('Got Sentry credentials');
     console.log(`Will upload sourcemaps for ${env.SENTRY_ORG}/${env.SENTRY_PROJECT}\n`);
