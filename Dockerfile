@@ -32,5 +32,5 @@ RUN NODE_OPTIONS=--max-old-space-size=8192 VITE_APP_GIT_HASH="${GIT_HASH}" \
     npx vite build
 
 # ─── Runtime: static SPA via hanzoai/spa (serves /public on :3000) ────
-FROM ghcr.io/hanzoai/spa:1.2.0
+FROM ghcr.io/hanzoai/spa:1.4.8
 COPY --from=build /app/dist /public
