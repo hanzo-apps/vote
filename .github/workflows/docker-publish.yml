@@ -50,6 +50,13 @@ jobs:
           push: true
           platforms: linux/amd64
           provenance: false
+          # Vite inlines these into the bundle at build time, so they cannot be
+          # supplied as runtime container env. VITE_APP_WALLET_CONNECT_PROJECT_ID
+          # is the Reown (WalletConnect Cloud) project id; while the secret is
+          # unset the build stays green and the app degrades to injected-only
+          # wallets, rather than shipping a placeholder id that Reown 403s.
           build-args: |
             GIT_HASH=${{ github.sha }}
+            VITE_APP_WALLET_CONNECT_PROJECT_ID=${{ secrets.VITE_APP_WALLET_CONNECT_PROJECT_ID }}
+            VITE_APP_SITE_URL=https://hanzo.vote
           tags: ${{ steps.tags.outputs.tags }}
