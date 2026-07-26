@@ -28,7 +28,19 @@ RUN npm install --no-audit --no-fund --legacy-peer-deps
 # is injected explicitly instead of via `git rev-parse`.
 COPY . .
 ARG GIT_HASH=docker
+
+# Vite inlines these at BUILD time (import.meta.env in the bundle, %VITE_*% in
+# index.html), so anything supplied only as a runtime container env is invisible
+# to the shipped assets — they must be passed here. Both defaulted wrong before:
+# no project id reached the bundle at all, and VITE_APP_SITE_URL fell through to
+# the .env dev default, so production served og:url=http://localhost:3000 and
+# advertised localhost as the WalletConnect dapp origin.
+ARG VITE_APP_WALLET_CONNECT_PROJECT_ID=""
+ARG VITE_APP_SITE_URL="https://hanzo.vote"
+
 RUN NODE_OPTIONS=--max-old-space-size=8192 VITE_APP_GIT_HASH="${GIT_HASH}" \
+    VITE_APP_WALLET_CONNECT_PROJECT_ID="${VITE_APP_WALLET_CONNECT_PROJECT_ID}" \
+    VITE_APP_SITE_URL="${VITE_APP_SITE_URL}" \
     npx vite build
 
 # ─── Runtime: static SPA via hanzoai/spa (serves /public on :3000) ────
